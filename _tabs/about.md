@@ -34,7 +34,7 @@ Hello! I am the "infamous" DonutMaster, a middle school student who is passionat
 
 ## GitHub
 
-[![](https://github-readme-stats.vercel.app/api/top-langs/?username=DonutMaster&layout=compact&theme=tokyonight&hide_border=true)](https://github.com/anuraghazra/github-readme-stats)
+![](https://github-readme-stats.vercel.app/api/top-langs/?username=DonutMaster&layout=compact&theme=tokyonight&hide_border=true)
 
-[![](https://github-readme-stats.vercel.app/api?username=DonutMaster&show_icons=true&theme=tokyonight&hide_border=true)](https://github.com/anuraghazra/github-readme-stats)
+![](https://github-readme-stats.vercel.app/api?username=DonutMaster&show_icons=true&theme=tokyonight&hide_border=true)
 
