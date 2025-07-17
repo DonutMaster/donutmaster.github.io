@@ -6,11 +6,10 @@ order: 4
 ---
 
 # About Me
-<br>
 
 ---
 
-Hello! I am the "infamous" DonutMaster, a middle school student who is passionate about ethical hacking and competitive programming. Explore the walkthroughs I have created for challenges and solutions for competitive programming problems I have solved.
+Hello! I am the "infamous" DonutMaster, a middle school student who is passionate about ethical hacking and competitive programming. If you are inside the TryHackMe discord server, I am almost 99% sure you know me as DonutMaster (or DonutMustard) if you are pretty active. Explore the walkthroughs I have created for challenges and solutions for competitive programming problems I have solved.
 
 ---
 
@@ -38,6 +37,8 @@ Hello! I am the "infamous" DonutMaster, a middle school student who is passionat
 
 ![](https://github-readme-stats.vercel.app/api?username=DonutMaster&show_icons=true&theme=tokyonight&hide_border=true)
 
+<br>
+
 ---
 
 ## Contact
@@ -46,4 +47,8 @@ You can reach me at the following, give me 1-1337 (or more) minutes to reply
 
 ![](https://img.shields.io/badge/discord-5865F2?logo=discord&logoColor=white){: .left } @ [DonutMaster](https://discord.com/users/987259301506736149)
 
+<br>
+
 ![](https://img.shields.io/badge/Proton%20Mail-6D4AFF?logo=protonmail&logoColor=fff){: .left } @ [DonutMaster1337@proton.me](mailto:DonutMaster1337@proton.me)
+
+---
