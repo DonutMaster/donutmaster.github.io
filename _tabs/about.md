@@ -38,3 +38,12 @@ Hello! I am the "infamous" DonutMaster, a middle school student who is passionat
 
 ![](https://github-readme-stats.vercel.app/api?username=DonutMaster&show_icons=true&theme=tokyonight&hide_border=true)
 
+---
+
+## Contact
+
+You can reach me at the following, give me 1-1337 (or more) minutes to reply
+
+![](https://img.shields.io/badge/discord-5865F2?logo=discord&logoColor=white){: .left } @ [DonutMaster](https://discord.com/users/987259301506736149)
+
+![](https://img.shields.io/badge/Proton%20Mail-6D4AFF?logo=protonmail&logoColor=fff){: .left } @ [DonutMaster1337@proton.me](mailto:DonutMaster1337@proton.me)
