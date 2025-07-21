@@ -92,4 +92,3 @@ Then, the code continues this process from line 8-16 for all test cases.
 ## Accepted!
 
 ![Problem A Accepted](/assets/img/codeforces/round1037/problemA.png)
-
