@@ -6,7 +6,7 @@ icon: fas fa-info-circle
 permalink: /
 ---
 
-Welcome to the DonutMaster's Blog! You can find solutions to hacking challenges and competitive programming problems! Check out my [about me](https://donutmaster.github.io/about-me) to learn more!
+Welcome to the DonutMaster Blog! You can find solutions to hacking challenges and competitive programming problems! Check out my [about me](https://donutmaster.github.io/about-me) to learn more!
 
 # How this Blog was made
 
