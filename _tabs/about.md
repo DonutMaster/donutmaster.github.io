@@ -9,7 +9,7 @@ order: 4
 
 ---
 
-Hello! I am the "infamous" DonutMaster, a middle school student who is passionate about ethical hacking and competitive programming. If you are inside the TryHackMe discord server, I am almost 99% sure you know me as DonutMaster (or DonutMustard) if you are pretty active. Explore the walkthroughs I have created for challenges and solutions for competitive programming problems I have solved.
+Hello! I am the "infamous" DonutMaster, a middle school student who is passionate about ethical hacking and competitive programming. If you have joined the TryHackMe discord server, I am almost 99% sure you know me as DonutMaster (or DonutMustard) if you are pretty active. Explore the walkthroughs I have created for challenges and solutions for competitive programming problems.
 
 ---
 
