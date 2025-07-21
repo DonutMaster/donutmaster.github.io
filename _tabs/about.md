@@ -29,7 +29,7 @@ Hello! I am the "infamous" DonutMaster, a middle school student who is passionat
 
 ## TryHackMe
 
-![](https://tryhackme-badges.s3.amazonaws.com/DonutMaster.png)
+![TryHackMe Badge](https://tryhackme.com/api/v2/badges/public-profile?userPublicId=4394913)
 
 ## GitHub
 
