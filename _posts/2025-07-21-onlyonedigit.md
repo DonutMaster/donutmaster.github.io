@@ -4,6 +4,7 @@ date: 2025-07-21
 categories: [Codeforces, Round 1037]
 tags: [codeforces, coding, competitive programming]
 description: Solution for coding problem "Only One Digit"
+math: true
 ---
 
 Link: [https://codeforces.com/contest/2126/problem/A](https://codeforces.com/contest/2126/problem/A)
@@ -80,17 +81,17 @@ int main() {
 }
 ```
 
-Line 5-6: initializes T (test cases) and inputs them in
+Lines 5-6: initializes T (test cases) and inputs them in
 
 Line 7: starts a for loop for the number of test cases
 
-Line: 8-9: initializes and inputs in X
+Lines 8-9: initializes and inputs in X
 
-Line: 10-15: finds the smallest existing digit inside X
+Lines 10-15: finds the smallest existing digit inside X
 
-Line: 16: prints out the answer
+Line 16: prints out the answer
 
-Then, the code continues this process from line 8-16 for all test cases.
+Then, the code continues this process from line 8-16 for all other test cases.
 
 ## Accepted!
 
