@@ -51,9 +51,9 @@ For each test case, output one integer y — the minimum non-negative number tha
 ```
 
 ## Approach
-When trying to find the number y, we can see that y never has to be larger than a one digit number. Let's take the case for `75` for instance. If we choose y as `67`, x and y both share the digit `7`.
+When trying to find the number y, we can see that y never has to be larger than a one digit number. Let's take the case when x is `75` for instance. If we choose y as `67`, x and y both share the digit `7`.
 
-However, as you can see, if they share the digit `7` y doesn't need the digit `6`. Therefore, y will always be a one digit number.
+However, as you can see, if they share the digit `7` y doesn't need the digit `6`. Therefore, using this example, we have proven that y will always be a one digit number.
 
 Now, we need to choose one of the digits that appear in x that will be y. We can simply choose the smallest digit that appears in x, and that will be our answer.
 
