@@ -1,5 +1,5 @@
 ---
-title: Codeforces Round 1037 (Div. 3) Problem A "Only One Digit"
+title: Codeforces Round 1037 Problem "Only One Digit"
 date: 2025-07-21
 categories: [Codeforces, Round 1037]
 tags: [codeforces, coding, competitive programming]
@@ -21,9 +21,9 @@ In other words, there must exist a decimal digit d that appears in both the repr
 
 ## Input
 
-The first line contains an integer t (1≤t≤1000) — the number of test cases.
+The first line contains an integer t (1 ≤ t ≤ 1000) — the number of test cases.
 
-The first line of each test case contains one integer x (1≤x≤1000).
+The first line of each test case contains one integer x (1 ≤ x ≤ 1000).
 
 ## Output
 
