@@ -25,3 +25,4 @@ If there is a specific TryHackMe room (not HackTheBox, not yet anyway) or a comp
 If you want to contact me for anything but hacking/coding, I will ignore you forever. The only topics I will allow is hacking, coding, possibly science, maybe math, and about my blog.
 
 If you are either Slavetomints, DenialandError, DKob, Ashlynn, Haz_0x, darkfly, Jabba, Toaster, skittles, bleu, Timo, or 0day (Ryan) from THM discord server (whom I have talked to before), I give you guys specific permission to talk to me about almost anything.
+
