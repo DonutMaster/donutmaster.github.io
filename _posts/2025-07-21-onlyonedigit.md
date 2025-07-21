@@ -6,7 +6,7 @@ tags: [codeforces, coding, competitive programming]
 description: Solution for coding problem "Only One Digit"
 ---
 
-Link: https://codeforces.com/contest/2126/problem/A
+Link: [https://codeforces.com/contest/2126/problem/A](https://codeforces.com/contest/2126/problem/A)
 
 > Problem description:
 > 
