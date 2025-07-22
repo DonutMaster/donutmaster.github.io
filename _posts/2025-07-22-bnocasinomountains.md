@@ -64,6 +64,31 @@ For each test case, output a single integer: the maximum number of hikes that Je
 2
 ```
 
+### Note
+**In the first sample:**
+
+- Day 1 -- good weather, Jean goes on a hike. (a<sub>1</sub> = 0)
+- Day 2 -- mandatory break.
+- Day 3 -- again good weather, Jean goes on the second hike. (a<sub>3</sub> = 0)
+- Day 4 -- break.
+- Day 5 -- good weather, third hike. (a<sub>5</sub> = 0)
+
+Thus Jean can make **3 hikes**, alternating each with a mandatory day of rest.
+
+**In the second sample:**
+
+- From day 1 to day 3 -- three days of good weather, Jean goes on a hike. (a<sub>1</sub> = a<sub>2</sub> = a<sub>3</sub> = 0)
+- Day 4 -- mandatory break.
+- From day 5 to day 7 -- again three days of good weather, Jean goes on the second hike (a<sub>5</sub> = a<sub>6</sub> = a<sub>7</sub> = 0)
+
+In total Jean makes **2 hikes**.
+
+**In the third sample:**
+
+- There are no days with good weather (a<sub>i</sub> = 1 for all i)
+
+Jean cannot make any hikes. **Answer: 0**
+
 ## Approach
 Jean can never be hiking on a day that rains. Therefore, we only care about the intervals with consecutive days of no rain.
 

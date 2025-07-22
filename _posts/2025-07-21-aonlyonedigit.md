@@ -51,6 +51,11 @@ For each test case, output one integer y — the minimum non-negative number tha
 6
 ```
 
+### Note
+In the first test case, the numbers `6` and `6` share the common digit `6`. Moreover, theere is no natural number smaller than this that shares a common digit.
+
+In the second test case, the number `6` and `96` share the common digit `6`.
+
 ## Approach
 When trying to find the number y, we can see that y never has to be larger than a one digit number. Let's take the case when x is `75` for instance. If we choose y as `67`, x and y both share the digit `7`.
 
