@@ -52,7 +52,7 @@ For each test case, output one integer y — the minimum non-negative number tha
 ```
 
 ### Note
-In the first test case, the numbers `6` and `6` share the common digit `6`. Moreover, theere is no natural number smaller than this that shares a common digit.
+In the first test case, the numbers `6` and `6` share the common digit `6`. Moreover, there is no natural number smaller than this that shares a common digit.
 
 In the second test case, the number `6` and `96` share the common digit `6`.
 
