@@ -86,17 +86,19 @@ int main() {
 }
 ```
 
-Lines 5-6: initializes T (test cases) and inputs them in
+**Lines 1-2:** imported all libraries needed and used the namespace std
 
-Line 7: starts a for loop for the number of test cases
+**Lines 5-6:** initializes T (test cases) and inputs them in
 
-Lines 8-9: initializes and inputs in X
+**Line 7:** starts a for loop for the number of test cases
 
-Lines 10-15: finds the smallest existing digit inside X
+**Lines 8-9:** initializes and inputs in X
 
-Line 16: prints out the answer
+**Lines 10-15:** finds the smallest existing digit inside X
 
-Then, the code continues this process from line 8-16 for all other test cases.
+**Line 16:** prints out the answer
+
+Then, the code continues this process from lines 8-16 for all other test cases.
 
 ## Accepted!
 

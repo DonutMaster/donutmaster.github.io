@@ -142,19 +142,21 @@ int main() {
 }
 ```
 
-Lines 7-8: initializes T (test cases) and inputs them in
+**Lines 1-4:** imported all libraries needed and used the namespace std
 
-Line 9: starts a for loop for the number of test cases
+**Lines 7-8:** initializes T (test cases) and inputs them in
 
-Line 10-11: initializes and inputs in N and K
+**Line 9:** starts a for loop for the number of test cases
 
-Lines 12-15: intializes a vector (array) called A and inputs in all statuses for days from 1 to N
+**Line 10-11:** initializes and inputs in N and K
 
-Lines 16-34: finds all the intervals of zeros and the lenghts of each interval
+**Lines 12-15:** intializes a vector (array) called A and inputs in all statuses for days from 1 to N
 
-Lines 35-39: calculates the number of peaks that Jean can travel for each interval
+**Lines 16-34:** finds all the intervals of zeros and the lenghts of each interval
 
-Then, the code continues this process from line 10-39 for all other test cases.
+**Lines 35-39:** calculates the number of peaks that Jean can travel for each interval
+
+Then, the code continues this process from lines 10-39 for all other test cases.
 
 ## Accepted!
 
