@@ -19,7 +19,7 @@ It depends on the competition's format, time frame, number of problems, who can 
 An IDE (Integrated Development Environment) is how you would run your program against the test cases that are given to you (and even test cases you create yourself). Here are some recommendations from me:
 
 #### VS Code
-I use VS Code on Windows because this is an IDE that I started with from the beginning. It was a pain to set up when I first started, but afterward, it has been great to use! If you want to use it yourself (it should also have a guide on downloading a specific coding language on the left), you can follow this documentation:
+I use VS Code on Windows (it can also be used in Linux and Mac) because this is an IDE that I started with from the beginning. It was a pain to set up when I first started, but afterward, it has been great to use! If you want to use it yourself (it should also have a guide on downloading a specific coding language on the left), you can follow this documentation:
 
 - [VS Code Download Overview](https://code.visualstudio.com/docs/setup/setup-overview)
 
