@@ -16,6 +16,7 @@ Link: [https://codeforces.com/contest/2126/problem/B](https://codeforces.com/con
 {: .prompt-info }
 
 ## Problem description
+
 You are given an array a of n numbers and a number k. The value a<sub>i</sub> describes the weather on the i-th day: if it rains on the i-th day, then a<sub>i</sub>=1; otherwise, if the weather is good on the i-th day, then a<sub>i</sub>=0.
 
 Jean wants to visit as many peaks as possible. One hike to a peak takes exactly k days, and during each of these days, the weather must be good (a<sub>i</sub>=0). That is, formally, he can start a hike on day i only if all a<sub>j</sub>=0 for all j (i ≤ j ≤ i+k−1).

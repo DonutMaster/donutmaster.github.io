@@ -16,6 +16,7 @@ Link: [https://codeforces.com/contest/2126/problem/A](https://codeforces.com/con
 {: .prompt-info }
 
 ## Problem description
+
 You are given an integer X. You need to find the smallest non-negative integer y such that the numbers x and y share at least one common digit.
 
 In other words, there must exist a decimal digit d that appears in both the representation of number x and number y.

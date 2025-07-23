@@ -15,6 +15,7 @@ Link: [https://codeforces.com/contest/2126/problem/D](https://codeforces.com/con
 {: .prompt-info }
 
 ## Problem description
+
 You are given n casinos, numbered from 1 to n. Each casino is described by three integers: l<sub>i</sub>, r<sub>i</sub>, and reali (l<sub>i</sub> ≤ real<sub>i</sub> ≤ r<sub>i</sub>). You initially have k coins.
 
 You can play at casino i only if the current number of coins x satisfies l<sub>i</sub> ≤ x ≤ r<sub>i</sub>. After playing, your number of coins becomes reali.

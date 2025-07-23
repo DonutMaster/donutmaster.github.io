@@ -15,6 +15,7 @@ Link: [https://codeforces.com/contest/2126/problem/E](https://codeforces.com/con
 {: .prompt-info }
 
 ## Problem description
+
 Two arrays p and s of length n are given, where p is the prefix GCD∗ of some array a, and s is the suffix GCD of the same array a. In other words, if the array a existed, then for each 1 ≤ i ≤ n, the following equalities would hold both: 
 
 - p<sub>i</sub> = gcd(a<sub>1</sub>,a<sub>2</sub>,…,a<sub>i</sub>)
@@ -154,7 +155,7 @@ int main() {
 
 **Line 10-11:** initializes and inputs in N
 
-**Lines 12-19:** intializes tow vectors (arrays) called P and S and inputs in all values for both vectors
+**Lines 12-19:** intializes two vectors (arrays) called P and S and inputs in all values for both vectors
 
 **Lines 20-32:** calculates the LCM of all P<sub>i</sub> and S<sub>N-i+1</sub> for all i from 1 to N
 
