@@ -9,8 +9,6 @@ description: A guide for beginners to start their competitive programming journe
 ## What is Competitive Programming?
 What exactly is competitive programming? In most cases, you have several problems and usually a few hours (possibly more or less) to solve as many problems as possible or get as many points as possible.
 
-It depends on the competition's format, time frame, number of problems, who can participate and more.
-
 <br>
 
 ---
