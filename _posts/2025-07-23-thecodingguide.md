@@ -1,7 +1,7 @@
 ---
 title: Competitive Programming Guide for Beginners
 date: 2025-07-23
-categories: [Competitive Programming, General]
+categories: [Competitive Programming, Guides]
 tags: [coding, competitive programming]
 description: A guide for beginners to start their competitive programming journey
 ---
