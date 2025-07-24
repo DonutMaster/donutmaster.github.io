@@ -169,3 +169,4 @@ I would recommend [Errichto's YouTube Channel](https://www.youtube.com/@Errichto
 
 ## Conclusion
 This is mostly what you need to know to start competitive programming! If you ever need more, always try searching on the Internet to learn what you need to know. Have fun coding!
+
