@@ -43,7 +43,7 @@ Hello! I am the "infamous" DonutMaster, a middle school student who is passionat
 
 ## Contact
 
-You can reach me at the following, give me 1-1337 (or more) minutes to reply
+You can reach me at the following, give me 1-1337 (or more) minutes to reply (please be clear why you are reaching out to me)
 
 ![](https://img.shields.io/badge/discord-5865F2?logo=discord&logoColor=white){: .left } @ [DonutMaster](https://discord.com/users/987259301506736149)
 
