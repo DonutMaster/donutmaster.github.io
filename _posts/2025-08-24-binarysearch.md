@@ -2,7 +2,7 @@
 title: Binary Search
 date: 2025-08-24
 categories: [Competitive Programming, Numerical Search]
-tags: [coding, competitive programming, dsa]
+tags: [coding, competitive programming, dsa, numerical search]
 description: A tutorial on how to use binary search
 ---
 
