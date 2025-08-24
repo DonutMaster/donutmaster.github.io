@@ -47,7 +47,7 @@ We can just continue this process until we find our number nine (or the range co
 
 This solution works because the array is sorted. When the array is sorted, we can figure out if a number (in this case, nine) can or cannot exist on the left rnge when cutting our range in half.
 
-Therefore, we can always cut our range in half until we have only one number left in our range: the number we wanted to find. The maximum number of operations is log<sub>2</sub>(N) because we always cut our range in half until the length of our range is one.
+Therefore, we can always cut our range in half until we have only one number left in our range: the number we wanted to find. The maximum number of operations is log<sub>2</sub>(N) because we always cut our range in half until the length of our range is one. Keep in mind that you might hear time complexities of log(N) from other sources. In competitive programming, people usually refer log<sub>2</sub>(N) as just log(N).
 
 ## Conclusion
 Binary Search can be used in many ways. The key theme of binary search is that at some point inside our range, something changes. In our instance above, numbers in positions one to five are less than nine, while the rest of the numbers on the right are larger then or equal to nine. We must have exactly one point that changes something when going from left to right (usually, we try to find that point while binary searching).
