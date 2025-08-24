@@ -19,9 +19,13 @@ Let's say you have a sorted array with some numbers:
 
 You want to find the position where the number nine exists. We, as humans, can see that it is at position six from the left. However, how would we figure out where the nine is from a simple computer program?
 
+### Brute Force Solution
+
 The simple solution is to check from the left and keep moving to the right until we find the number nine (or possibly a number larger than nine if nine does not exist in the array). This would take N operations (worst possible case) when N is the length of this array.
 
 ![Brute Force](/assets/img/competitive_programming/Binary_Search/2.png)
+
+### Binary Search Solution
 
 We can go even faster using Binary Search. Because we know that this is a SORTED array, we can cut the range (we are looking in) in half if we still haven't found our number.
 
@@ -39,7 +43,9 @@ We can just continue this process until we find our number nine (or the range co
 
 ![Last operation](/assets/img/competitive_programming/Binary_Search/6.png)
 
-Why does this work? Well, the simple answer is: because the array is sorted. When the array is sorted, we can figure out if a number (in this case, nine) can or cannot exist on the left rnge when cutting our range in half.
+### Why does this work?
+
+This solution works becuase the array is sorted. When the array is sorted, we can figure out if a number (in this case, nine) can or cannot exist on the left rnge when cutting our range in half.
 
 Therefore, we can always cut our range in half until we have only one number left in our range: the number we wanted to find. The maximum number of operations is log<sub>2</sub>(N) because we always cut our range in half until the length of our range is one.
 
