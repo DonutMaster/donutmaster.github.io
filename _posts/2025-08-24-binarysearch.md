@@ -45,7 +45,7 @@ We can just continue this process until we find our number nine (or the range co
 
 ### Why does this work?
 
-This solution works becuase the array is sorted. When the array is sorted, we can figure out if a number (in this case, nine) can or cannot exist on the left rnge when cutting our range in half.
+This solution works because the array is sorted. When the array is sorted, we can figure out if a number (in this case, nine) can or cannot exist on the left rnge when cutting our range in half.
 
 Therefore, we can always cut our range in half until we have only one number left in our range: the number we wanted to find. The maximum number of operations is log<sub>2</sub>(N) because we always cut our range in half until the length of our range is one.
 
