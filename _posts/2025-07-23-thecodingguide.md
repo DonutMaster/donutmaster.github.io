@@ -100,7 +100,7 @@ This is how you should print out your answer for each case, query, etc. You will
 <br>
 
 #### Example Test Cases
-The problems almost always give at least one example test case with the input and correct output. You can test your code on that test case to see if your code prints out the correct output. Keep in mind that this does not necessarily mean your code will work for ALL test cases.
+The problems almost always give at least one example test case with the input and correct output. You can test your code on that test case to see if your code prints out the correct output. Some problems might have multiple answers for a test case. Your code might still be correct even though it doesn't print out the exact same output as the example test cases given. So, make sure to check the problem statement carefully. Keep in mind that this does not necessarily mean your code will work for ALL test cases.
 
 **Ex.**
 
