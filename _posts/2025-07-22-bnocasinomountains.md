@@ -1,5 +1,5 @@
 ---
-title: Codeforces Round 1037 Problem "No Casino in the Mountains"
+title: Codeforces Round 1037 Problem B "No Casino in the Mountains"
 date: 2025-07-22
 categories: [Codeforces, Round 1037]
 tags: [codeforces, coding, competitive programming]

@@ -1,5 +1,5 @@
 ---
-title: Codeforces Round 1037 Problem "G-C-D, Unlucky!"
+title: Codeforces Round 1037 Problem E "G-C-D, Unlucky!"
 date: 2025-07-22
 categories: [Codeforces, Round 1037]
 tags: [codeforces, coding, competitive programming]

@@ -1,5 +1,5 @@
 ---
-title: Codeforces Round 1037 Problem "Only One Digit"
+title: Codeforces Round 1037 Problem A "Only One Digit"
 date: 2025-07-21
 categories: [Codeforces, Round 1037]
 tags: [codeforces, coding, competitive programming]

@@ -1,5 +1,5 @@
 ---
-title: Codeforces Round 1037 Problem "This is the Last Time"
+title: Codeforces Round 1037 Problem D "This is the Last Time"
 date: 2025-07-22
 categories: [Codeforces, Round 1037]
 tags: [codeforces, coding, competitive programming]
