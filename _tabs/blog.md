@@ -57,6 +57,7 @@ order: 1
             <h1 class="card-title my-2 mt-md-0">{{ post.title }}</h1>
 
             <div class="card-text content mt-0 mb-3">
+              <p>{% include post-description.html %}</p>
             </div>
 
             <div class="post-meta flex-grow-1 d-flex align-items-end">
