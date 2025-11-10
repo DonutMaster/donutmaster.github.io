@@ -19,7 +19,7 @@ So, what are you gonna see on this blog?
 
 A lot of the posts I will create/created are either walkthroughs on [TryHackMe](https://tryhackme.com/) (THM) or [HackTheBox](https://app.hackthebox.com/) (HTB) challenges and solutions of competitive programming/coding problems I have solved (usually on large competitions, [Codeforces](https://codeforces.com/), [CodeChef](https://www.codechef.com/), [Leetcode](https://leetcode.com/)). Some posts will be about the algorithms and data structures for competitive programming.
 
-I plan on writing posts in the future about my Artificial Intelligence projects written in pytorch!
+I plan on writing posts in the future about my Artificial Intelligence projects written in Pytorch!
 
 # Contact me
 If there is a specific TryHackMe room (not HackTheBox, not yet anyway), a competitive programming problem I should write a writeup/solution for, or a DSA topic I should write a tutorial about, [email](mailto:DonutMaster1337@proton.me) me the room, problem, or DSA topic.
