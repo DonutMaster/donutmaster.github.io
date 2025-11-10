@@ -39,6 +39,12 @@ Link: [DonutMaster123](https://app.hackthebox.com/users/647728)
 
 ![](/assets/img/htb/HackTheBox.png)
 
+## Codeforces
+
+Link: [DonutMaster](https://codeforces.com/profile/DonutMaster)
+
+![](/assets/img/codeforces/Codeforces.png)
+
 ## GitHub
 
 Link: [DonutMaster](https://github.com/DonutMaster)
@@ -54,10 +60,6 @@ Link: [DonutMaster](https://github.com/DonutMaster)
 ## Contact
 
 You can reach me at the following, give me 1-1337 (or more) minutes to reply (please be clear why you are reaching out to me)
-
-![](https://img.shields.io/badge/discord-5865F2?logo=discord&logoColor=white){: .left } @ [DonutMaster](https://discord.com/users/987259301506736149)
-
-<br>
 
 ![](https://img.shields.io/badge/Proton%20Mail-6D4AFF?logo=protonmail&logoColor=fff){: .left } @ [DonutMaster1337@proton.me](mailto:DonutMaster1337@proton.me)
 
