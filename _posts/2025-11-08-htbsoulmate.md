@@ -8,11 +8,10 @@ description: HackTheBox Soulmate Medium Challenge Writeup
 
 ## Adding IP to /etc/hosts
 
-We can add this line:
+To add the machine IP into your /etc/hosts, we can use this command:
+```terminal
+sudo echo '10.10.11.86 soulmate.htb' >> /etc/hosts
 ```
-10.10.11.86 soulmate.htb
-```
-into our /etc/hosts.
 
 ## Rustscan
 
@@ -108,5 +107,6 @@ Nmap done: 1 IP address (1 host up) scanned in 13.27 seconds
 ```
 
 > # <center> 🔒 Post is Locked 🔒 </center>
+> <br>
 > "Soulmate" is currently an active machine on HackTheBox. Once retired, this blog post will be published for public access, as per [HackTheBox's policy](https://help.hackthebox.com/en/articles/5188925-streaming-writeups-walkthrough-guidelines?ref=benheater.com) on publishing content from their platform.
 {: .prompt-info }

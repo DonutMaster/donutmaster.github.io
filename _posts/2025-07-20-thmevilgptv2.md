@@ -15,6 +15,8 @@ description: TryHackMe Evil-GPT v2 Easy Challenge Writeup
 > The machine takes 5/6 minutes to fully boot up.
 {: .prompt-info }
 
+<br>
+
 ---
 
 ## Rustscan
