@@ -1,7 +1,7 @@
 ---
 title: Evil-GPT v2 Writeup
 date: 2025-07-20
-categories: [TryHackMe Challenges, Easy]
+categories: [TryHackMe Challenges, THM Easy]
 tags: [thm, challenge, easy]
 description: TryHackMe Evil-GPT v2 Easy Challenge Writeup
 ---

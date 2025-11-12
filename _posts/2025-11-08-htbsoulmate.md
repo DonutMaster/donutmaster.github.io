@@ -1,7 +1,7 @@
 ---
 title: Soulmate Writeup
 date: 2025-11-08
-categories: [HackTheBox Challenges, Medium]
+categories: [HackTheBox Challenges, HTB Medium]
 tags: [htb, challenge, medium]
 description: HackTheBox Soulmate Medium Challenge Writeup
 ---

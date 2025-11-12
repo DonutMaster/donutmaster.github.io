@@ -1,7 +1,7 @@
 ---
 title: Dreaming Writeup
 date: 2025-07-17
-categories: [TryHackMe Challenges, Easy]
+categories: [TryHackMe Challenges, THM Easy]
 tags: [thm, challenge, easy]
 description: TryHackMe Dreaming Easy Challenge Writeup
 ---

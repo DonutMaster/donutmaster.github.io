@@ -1,7 +1,7 @@
 ---
 title: Outbound Writeup
 date: 2025-11-11
-categories: [HackTheBox Challenges, Easy]
+categories: [HackTheBox Challenges, HTB Easy]
 tags: [htb, challenge, easy]
 description: HackTheBox Outbound Easy Challenge Writeup
 ---
