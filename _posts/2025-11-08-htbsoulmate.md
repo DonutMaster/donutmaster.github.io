@@ -8,9 +8,9 @@ description: HackTheBox Soulmate Medium Challenge Writeup
 
 ## Adding IP to /etc/hosts
 
-To add the machine IP into your /etc/hosts, we can use this command:
-```terminal
-sudo echo '10.10.11.86 soulmate.htb' >> /etc/hosts
+Add your machine IP into your /etc/hosts:
+```
+10.10.11.86 soulmate.htb
 ```
 
 ## Rustscan
