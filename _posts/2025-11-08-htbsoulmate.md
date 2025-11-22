@@ -18,7 +18,8 @@ Add your machine IP into your /etc/hosts:
 Let's use Rustscan/Nmap to check the ports on the SoulMate machine.
 
 ```terminal
-donutmaster@ubuntu:~/Desktop$ rustscan -a 10.10.11.86 -- -A
+┌──(kali㉿kali)-[~/Desktop/HTB/Soulmate]
+└─$ rustscan -a soulmate.htb -- -A
 .----. .-. .-. .----..---.  .----. .---.   .--.  .-. .-.
 | {}  }| { } |{ {__ {_   _}{ {__  /  ___} / {} \ |  `| |
 | .-. \| {_} |.-._} } | |  .-._} }\     }/  /\  \| |\  |
