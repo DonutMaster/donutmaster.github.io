@@ -1,5 +1,4 @@
 ---
-# the default layout is 'page'
 icon: fas fa-info-circle
 permalink: /about-me
 order: 4
@@ -9,7 +8,7 @@ order: 4
 
 ---
 
-Hello! I am the "infamous" DonutMaster, a high school student who is passionate about ethical hacking and competitive programming. If you have joined the TryHackMe discord server, I am almost 99% sure you know me as DonutMaster (or DonutMustard) if you are pretty active. Explore the walkthroughs I have created for challenges and solutions for competitive programming problems.
+Hello! I am the "infamous" DonutMaster, a high school student who is passionate about ethical hacking and competitive programming. Explore the walkthroughs I have created for challenges and solutions for competitive programming problems.
 
 ---
 
@@ -29,29 +28,31 @@ Hello! I am the "infamous" DonutMaster, a high school student who is passionate 
 
 ## TryHackMe
 
-Link: [DonutMaster](https://tryhackme.com/p/DonutMaster)
+[DonutMaster](https://tryhackme.com/p/DonutMaster)
 
 ![](https://tryhackme-badges.s3.amazonaws.com/DonutMaster.png)
 
 ## HackTheBox
 
-Link: [DonutMaster123](https://app.hackthebox.com/users/647728)
+[DonutMaster123](https://app.hackthebox.com/users/647728)
 
 ![](/assets/img/htb/HackTheBox.png)
 
 ## Codeforces
 
-Link: [DonutMaster](https://codeforces.com/profile/DonutMaster)
+[DonutMaster](https://codeforces.com/profile/DonutMaster)
 
 ![](/assets/img/codeforces/Codeforces.png)
 
 ## GitHub
 
-Link: [DonutMaster](https://github.com/DonutMaster)
+[DonutMaster](https://github.com/DonutMaster)
 
 ![](https://github-readme-stats.vercel.app/api/top-langs/?username=DonutMaster&layout=compact&theme=tokyonight&hide_border=true)
 
 ![](https://github-readme-stats.vercel.app/api?username=DonutMaster&show_icons=true&theme=tokyonight&hide_border=true)
+
+Note: If my Github stats don't properly show up on this page, it is most likely because the owner of the app paused deployment.
 
 <br>
 
@@ -59,7 +60,7 @@ Link: [DonutMaster](https://github.com/DonutMaster)
 
 ## Contact
 
-You can reach me at the following, give me 1-1337 (or more) minutes to reply (please be clear why you are reaching out to me)
+You can reach me at the following, give me 1-1337 (or more) minutes to reply (please be clear why you are reaching out to me).
 
 ![](https://img.shields.io/badge/Proton%20Mail-6D4AFF?logo=protonmail&logoColor=fff){: .left } @ [DonutMaster1337@proton.me](mailto:DonutMaster1337@proton.me)
 
