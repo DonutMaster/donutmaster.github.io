@@ -152,9 +152,9 @@ PORT     STATE SERVICE REASON         VERSION
 |_http-server-header: Werkzeug/3.1.3 Python/3.12.7
 ```
 
-We have two ports open: SSH (22) and HTTP (80) running on Python. Let's check what is on the web application.
+We have two ports open: SSH (22) and HTTP (8000) running on Python. Let's check what is on the web application.
 
-## HTTP(80)
+## HTTP(8000)
 
 We can search for possible directories with [Dirsearch](https://github.com/maurosoria/dirsearch).
 
