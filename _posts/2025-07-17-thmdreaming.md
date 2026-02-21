@@ -4,6 +4,7 @@ date: 2025-07-17
 categories: [TryHackMe Challenges, THM Easy]
 tags: [thm, challenge, easy]
 description: TryHackMe Dreaming Easy Challenge Writeup
+media_subpath: /assets/img/thm/dreaming/
 ---
 
 > Challenge description:
@@ -47,7 +48,7 @@ Seems like there are two ports: 22 (SSH) and 80 (HTTP).
 
 Let's check the HTTP (port 80) website.
 
-![Apache2 Ubuntu Default Page](/assets/img/thm/dreaming/apache2defpage.png)
+![Apache2 Ubuntu Default Page](apache2defpage.png)
 
 Hmm, seems like there is nothing on the default page and on the page source. Let's use dirsearch to search for directories (directory enumeration).
 
@@ -87,13 +88,13 @@ Target: http://10.10.REDACTED/
 [16:28:52] 403 -  277B  - /server-status
 ```
 
-![app directory](/assets/img/thm/dreaming/appdirectory.png)
+![app directory](appdirectory.png)
 
 We see a folder called `pluck-4.7.13`.
 
 ## Pluck 4.7.13
 
-![pluck application](/assets/img/thm/dreaming/pluckapp.png)
+![pluck application](pluckapp.png)
 
 When I click on the `pluck-4.7.13` folder, it seems like it opens a pluck application (probably version 4.7.13). I tried finding an exploit for pluck version 4.7.13, but I couldn't find anything for it.
 
@@ -101,10 +102,10 @@ When I click on the `pluck-4.7.13` folder, it seems like it opens a pluck applic
 When looking at the URL, it looks like the webpage might be vulnerable to LFI.
 
 URL = http://TARGET_IP/app/pluck-4.7.13/?file=..//..//..//..//..//..//..//etc/passwd
-![LFI attempt #1](/assets/img/thm/dreaming/LFI1.png)
+![LFI attempt #1](LFI1.png)
 
 URL = http://TARGET_IP/app/pluck-4.7.13/?file=php://filter/convert.base64-encode/resource=/etc/passwd
-![LFI attempt #2](/assets/img/thm/dreaming/LFI2.png)
+![LFI attempt #2](LFI2.png)
 
 Seems like the creator stopped any LFI attempts from working. So, as I always say, if you are stuck, EEEENNNNUUUMMMEEERRRAATTEEE!!!!
 
@@ -158,12 +159,12 @@ Target: http://10.10.REDACTED/
 ```
 
 ### Robots.txt
-![robots.txt](/assets/img/thm/dreaming/robots.png)
+![robots.txt](robots.png)
 
 Doesn't seem like it contains much information that we don't know already.
 
 ### Login.php
-![login page](/assets/img/thm/dreaming/login.png)
+![login page](login.png)
 
 Ahhhh, we have a login page! We only need a password and no username. We can use hydra to brute force the login. This part: `cont1=^PASS^&bogus=&submit=Log+in` was captured using Caido (you can also use Burp Suite, Zap, etc.).
 
@@ -182,25 +183,25 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2025-07-17 17:14:
 
 We got the password!
 
-![getting logged in](/assets/img/thm/dreaming/pluckloggingin.png)
+![getting logged in](pluckloggingin.png)
 
-![admin login](/assets/img/thm/dreaming/admin.png)
+![admin login](admin.png)
 
 ### Exploitation
 
 We are now in the admin page (basically logged into admin), let us search for possible exploitations.
 
-![file uploading](/assets/img/thm/dreaming/fileupload.png)
+![file uploading](fileupload.png)
 
 When first going into the admin panel, when clicking on the "pages" button, I saw a "manage files" page, which stuck out to me. When clicking on that button, it seems like I can upload files. Let's try uploading some php files.
 
-![shell upload](/assets/img/thm/dreaming/shellupload.png)
+![shell upload](shellupload.png)
 
 After trying `shell.php`, `shell.phtml` and `shell.php5`, `shell.phar` was the only one that didn't change to a `.txt` file. Let's check it out and get a shell.
 
-![reverse shell](/assets/img/thm/dreaming/revshell.png)
+![reverse shell](revshell.png)
 
-![shell recieved](/assets/img/thm/dreaming/shell.png)
+![shell recieved](shell.png)
 
 We got a shell!
 

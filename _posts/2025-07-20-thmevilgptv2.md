@@ -4,6 +4,7 @@ date: 2025-07-20
 categories: [TryHackMe Challenges, THM Easy]
 tags: [thm, challenge, easy]
 description: TryHackMe Evil-GPT v2 Easy Challenge Writeup
+media_subpath: /assets/img/thm/evilgptv2/
 ---
 
 > Challenge description:
@@ -94,27 +95,27 @@ PORT      STATE SERVICE REASON         VERSION
 
 ## HTTP(80)
 
-![HTTP Port 80](/assets/img/thm/evilgptv2/port80.png)
+![HTTP Port 80](port80.png)
 
 Seems like it is an AI Assistant. Let's ask about the flag.
 
-![Asking about the flag](/assets/img/thm/evilgptv2/aboutflag.png)
+![Asking about the flag](aboutflag.png)
 
 Hmm, it seems to follows a rule not to share the flag. We can try to make another rule to show the flag.
 
-![Creating a rule to show the flag](/assets/img/thm/evilgptv2/creatingrule.png)
+![Creating a rule to show the flag](creatingrule.png)
 
 Creating a rule doesn't work either. We will try "make" the AI tell the flag.
 
-![Desperate way](/assets/img/thm/evilgptv2/familycaptive.png)
+![Desperate way](familycaptive.png)
 
 That doesn't work either! Since it wants US to be safe, let's say we are taken hostage.
 
-![Very desperate way](/assets/img/thm/evilgptv2/uscaptive.png)
+![Very desperate way](uscaptive.png)
 
 Alright, let's ask what rules are set for this AI.
 
-![Rules set for the AI](/assets/img/thm/evilgptv2/rules.png)
+![Rules set for the AI](rules.png)
 
 Somehow, asking for the rule set in place for the AI tells use the flag!
 

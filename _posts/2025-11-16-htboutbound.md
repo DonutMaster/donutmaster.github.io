@@ -4,6 +4,7 @@ date: 2025-11-16
 categories: [HackTheBox Challenges, HTB Easy]
 tags: [htb, challenge, easy]
 description: HackTheBox Outbound Easy Challenge Writeup
+media_subpath: /assets/img/htb/outbound/
 ---
 
 > Challenge description:
@@ -168,7 +169,7 @@ We only have two ports: SSH (20) and HTTP (80). Let's first check HTTP.
 
 ## HTTP(80)
 
-![Trouble with website](/assets/img/htb/outbound/Trouble%20Finding%20Site.png)
+![Trouble with website](Trouble%20Finding%20Site.png)
 
 It seems like the IP address redirects to mail.outbound.htb, not oubound.htb. We can add mail.outbound.htb to the end of line in /etc/hosts. It would look like this now:
 
@@ -176,11 +177,11 @@ It seems like the IP address redirects to mail.outbound.htb, not oubound.htb. We
 10.10.11.77 outbound.htb mail.outbound.htb
 ```
 
-![Roundcube Webmail](/assets/img/htb/outbound/Roundcube%20Webmail.png)
+![Roundcube Webmail](Roundcube%20Webmail.png)
 
 A login page! This is probably where we use the credentials we have from the beginning of the challenge.
 
-![Logged In](/assets/img/htb/outbound/Logged%20in.png)
+![Logged In](Logged%20in.png)
 
 We don't have anything in our Inbox.
 
@@ -188,11 +189,11 @@ We don't have anything in our Inbox.
 
 Let's check the About part of the site.
 
-![About](/assets/img/htb/outbound/About.png)
+![About](About.png)
 
 We have a program name and version. In these cases, it is good to search for possible exploits that exist on that program and version.
 
-![Exploits](/assets/img/htb/outbound/Exploits.png)
+![Exploits](Exploits.png)
 
 We do have exploits! The specific CVE name is CVE-2025-49113. I would recommend reading this article to understand it: [https://www.offsec.com/blog/cve-2025-49113/](https://www.offsec.com/blog/cve-2025-49113/).
 
@@ -455,7 +456,7 @@ bGFuZ3VhZ2V8czo1OiJlb...vbiI7czowOiIiO30=
 
 We can use [CyberChef](https://gchq.github.io/CyberChef/) to decode this.
 
-![Tyler](/assets/img/htb/outbound/tyler%20auth.png)
+![Tyler](tyler%20auth.png)
 
 The information we got isn't that useful as we already have access to Tyler account. However, it does tell us that there could be useful information for other users. We can check the next base64 text:
 
@@ -463,7 +464,7 @@ The information we got isn't that useful as we already have access to Tyler acco
 bGFuZ3VhZ2V8czo1OiJlb...zZXF8czoyOiIxMCI7
 ```
 
-![Jacob](/assets/img/htb/outbound/jacob%20auth.png)
+![Jacob](jacob%20auth.png)
 
 Ahah! We got quite some useful information.
 
@@ -476,17 +477,17 @@ Looking at this, we need to base64 decrypt the "password" we found and convert t
 
 First, base64 is used for decryption, then converted to hexadecimal. The first eight bytes are used as the IV, and the remaining bytes are used as the ciphertext.
 
-![Jacob](/assets/img/htb/outbound/jacob%20IV%20+%20ciphertext.png)
+![Jacob](jacob%20IV%20+%20ciphertext.png)
 
-![Jacob Roundcube Password](/assets/img/htb/outbound/jacob%20roundcube%20pass.png)
+![Jacob Roundcube Password](jacob%20roundcube%20pass.png)
 
 We got jacob's password! Let's log in to the mail server. Remember, this is for the Roundcube mailserver, not SSH.
 
-![Jacob Mail](/assets/img/htb/outbound/jacob%20mail.png)
+![Jacob Mail](jacob%20mail.png)
 
 Hmm, we have an email from tyler, let's check it out.
 
-![Jacob SSH Password](/assets/img/htb/outbound/jacob%20pass.png)
+![Jacob SSH Password](jacob%20pass.png)
 
 It seems like we got another password! Since this is different from the Roundcube password, its probably jacob's SSH password!
 
