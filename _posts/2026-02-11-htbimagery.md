@@ -1,9 +1,9 @@
 ---
 title: Imagery Writeup
 date: 2026-02-11
-categories: [HackTheBox Challenges, HTB Medium]
-tags: [htb, challenge, medium]
-description: HackTheBox Imagery Medium Challenge Writeup
+categories: [HackTheBox Machines, HTB Medium]
+tags: [htb, machine, medium]
+description: HackTheBox Imagery Medium Machine Writeup
 media_subpath: /assets/img/htb/imagery/
 ---
 

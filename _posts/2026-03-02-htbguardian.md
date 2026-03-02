@@ -1,9 +1,9 @@
 ---
 title: Guardian Writeup
 date: 2026-03-02
-categories: [HackTheBox Challenges, HTB Hard]
-tags: [htb, challenge, hard]
-description: HackTheBox Guardian Hard Challenge Writeup
+categories: [HackTheBox Machines, HTB Hard]
+tags: [htb, machine, hard]
+description: HackTheBox Guardian Hard Machine Writeup
 media_subpath: /assets/img/htb/guardian/
 ---
 

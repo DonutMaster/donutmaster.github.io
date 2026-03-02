@@ -1,9 +1,9 @@
 ---
 title: Outbound Writeup
 date: 2025-11-16
-categories: [HackTheBox Challenges, HTB Easy]
-tags: [htb, challenge, easy]
-description: HackTheBox Outbound Easy Challenge Writeup
+categories: [HackTheBox Machines, HTB Easy]
+tags: [htb, machine, easy]
+description: HackTheBox Outbound Easy Machine Writeup
 media_subpath: /assets/img/htb/outbound/
 ---
 

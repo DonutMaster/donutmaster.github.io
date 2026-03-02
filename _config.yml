@@ -224,3 +224,10 @@ jekyll-archives:
   permalinks:
     tag: /tags/:name/
     category: /categories/:name/
+
+# Define your custom order for specific parents
+sub_category_orders:
+  "HackTheBox Machines":  # Change this to your actual category name
+    - "HTB Easy"
+    - "HTB Medium"
+    - "HTB Hard"
