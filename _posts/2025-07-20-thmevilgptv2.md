@@ -24,7 +24,7 @@ media_subpath: /assets/img/thm/evilgptv2/
 
 In any TryHackMe challenge room, we can use Rustscan/Nmap to check the ports on the Evil-GPT v2 machine (I have filtered part of the output).
 
-```terminal
+```bash
 command: rustscan -a TARGET_IP -- -A
 
 .----. .-. .-. .----..---.  .----. .---.   .--.  .-. .-.
