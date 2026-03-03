@@ -173,7 +173,7 @@ We can add `portal.guardian.htb` to our `/etc/hosts`.
 
 ![Student Portal Login](Portal%20Login.png)
 
-It seems we require a username (student's would submit their student ID starting with `GU`) and a password. When looking around the main site, we can see testimonials by students at this school.
+It seems we require a username (students would submit their student ID starting with `GU`) and a password. When looking around the main site, we can see testimonials by students at this school.
 
 ![Student Testimonials](Student%20Testimonials.png)
 
@@ -199,7 +199,7 @@ When clicking `Portal Guide`, we are redirected to a PDF file. There, we see a d
 
 ![Default Password](Default%20Password.png)
 
-It is possible that one of the users we found above did not change their password and still uses the default password. When testing out all users, inceed one user `GU0142023` is still using the default password!
+It is possible that one of the users we found above did not change their password and still uses the default password. When testing out all users, indeed one user `GU0142023` is still using the default password!
 
 ![GU0142023 Default Password](GU0142023%20Default%20Password.png)
 
@@ -235,7 +235,7 @@ We can see that the code for `portal.guardian.htb` is available.
 
 ![Code for portal.guardian.htb](portal.guardian.htb%20Code.png)
 
-When looking around, we find the file `config.php` containing the username and password for a mysql database on the machine. We can only access it through initail access, but it can be useful for the future.
+When looking around, we find the file `config.php` containing the username and password for a mysql database on the machine. We can only access it through initial access, but it can be useful for the future.
 
 ![MySQL Database Username and Password](DB%20User+Pass.png)
 
